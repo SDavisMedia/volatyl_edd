@@ -1,0 +1,14 @@
+/*
+Theme Name: Volatyl
+*/
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+.header-navigation {
+	position: static;
+	float: left;
+	margin-top: 10px;
+}
