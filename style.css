@@ -3,8 +3,8 @@
 	Theme URI: http://volatylthemes.com/add
 	Author: Volatyl Themes
 	Author URI: http://volatylthemes.com/
-	Description: Volatyl is a lightweight theme framework WordPress. The focus of Volatyl is leverage. Volatyl for EDD extends that leverage with the world's best free e-commerce plugin for WordPress. Build powerful online stores with Volatyl and Easy Digital Downloads.
-	Version: 1.2.4
+	Description: Volatyl is a lightweight theme framework WordPress. The focus of Volatyl is leverage. Volatyl for EDD extends that leverage with the world's best (and free) free e-commerce plugin for WordPress. Build powerful online stores with Volatyl and Easy Digital Downloads.
+	Version: 1.2.5
 	License: GNU General Public License Version 2
 	License URI: license.txt
 	Tags: white, one-column, two-columns, three-columns, left-sidebar, right-sidebar, featured-images, rtl-language-support, threaded-comments, translation-ready
@@ -78,13 +78,10 @@ pre,
 .site-footer,
 #container > .site-header,
 #menu-area-standard,
-#menu-area-footer,
 #container .standard-menu-wrap,
-#container .footer-menu-wrap,
 .short-menu .menu li ul a,
 .full-menu .menu li ul li a,
 .post.sticky,
-.page,
 .sticky .entry-header,
 .sticky .featured-img,
 .comments-content > ol > li.comment,
@@ -118,7 +115,6 @@ pre,
 }
 
 #menu-area-standard,
-#menu-area-footer,
 .sticky,
 #fat-footer .default-widget {
 	background: rgba(0,0,0,.02);
@@ -151,7 +147,6 @@ acronym,
 .entry-header h1, 
 .entry-header h2, 
 .entry-title,
-.site-title,
 .edd-sidebar-price {
 	margin: 0 0 .33334em;
 }
@@ -409,6 +404,7 @@ td {
 .site-title { 
 	font-size: 2.66667em;
 	line-height: 1.2em;
+	margin: 0 0 .2em;
 }
 
 .site-title a { 
