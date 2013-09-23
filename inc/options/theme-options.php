@@ -427,6 +427,7 @@ function vol_options_do_page() {
 			switch ($hook['name']) {
 				case 'vol_post_footer':
 				case 'vol_below_first_post':
+				case 'vol_last_byline_item':
 					echo '';
 					break;
 				default:
@@ -462,6 +463,7 @@ function vol_options_do_page() {
 				case 'vol_after_content_column':
 				case 'vol_before_article_header':
 				case 'vol_after_article_header':
+				case 'vol_last_byline_item':
 				case 'vol_post_footer':
 				case 'vol_below_first_post':
 					echo '';
@@ -523,6 +525,7 @@ function vol_options_do_page() {
 				case 'vol_after_content_column':
 				case 'vol_before_article_header':
 				case 'vol_after_article_header':
+				case 'vol_last_byline_item':
 				case 'vol_post_footer':
 				case 'vol_below_first_post':
 					echo '';
