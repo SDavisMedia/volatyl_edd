@@ -59,7 +59,7 @@ function vol_comments_only_count($count) {
 // Show 'Pages' in search results? 
 if ($options_content['searchpages'] == 0) { 
 	function vol_search_filter($query) {
-		if ($query->is_search)
+		if ($query->is_search && !is_admin())
 			$query->set('post_type', 'post');
 		return $query;
 	}
@@ -69,7 +69,7 @@ if ($options_content['searchpages'] == 0) {
 // Show excerpt/post link instead of [...]
 if ($options_content['excerptlink'] == 1) {
 
-	//create a permalink after the excerpt
+	// create a permalink after the excerpt
 	function vol_replace_excerpt($content) {
 		global $excerpt_link;
 		$excerpt_link = apply_filters('excerpt_link', 'Read More &rarr;');
