@@ -105,7 +105,7 @@ function volatyl_general() {
 		),
 		'Admin Menu' 		=> array(
 			'tr'			=> '<tr>',
-			'th'			=> '<th scope="row">' . __('Display ', 'volatyl') . THEME_NAME . __(' Admin Toolbar', 'volatyl') . '</th>',
+			'th'			=> '<th scope="row">' . __('Display ', 'volatyl') . THEME_NAME . __(' Toolbar', 'volatyl') . '</th>',
 			'td'			=> '<td>',
 			
 			'title'			=> 'adminmenu',
@@ -159,7 +159,7 @@ function volatyl_edd() {
 		),
 		'Download Comments' => array(
 			'tr'			=> '<tr>',
-			'th'			=> __('<th scope="row">Show comments on downloads</th>', 'volatyl'),
+			'th'			=> __('<th scope="row">Display Comments on Downloads</th>', 'volatyl'),
 			'td'			=> '<td>',
 			
 			'title'			=> 'downloadcomments',
@@ -196,7 +196,7 @@ function volatyl_content() {
 			'table_name'	=> '<h3>' . __('Content Settings', 'volatyl') . '</h3>',
 			'table'			=> '<table class="form-table">',
 			'tr'			=> '<tr>',
-			'th'			=> '<th scope="row">' . __('Display Default Header Elements', 'volatyl') . '</th>',
+			'th'			=> '<th scope="row">' . __('Display Header Elements', 'volatyl') . '</th>',
 			'td'			=> '<td>',
 			'title'			=> 'title',
 			'label'			=> __('Site title', 'volatyl'),
@@ -227,7 +227,7 @@ function volatyl_content() {
 		),
 		'Fat Footer' 		=> array(
 			'tr'			=> '<tr>',
-			'th'			=> '<th scope="row">' . __('Activate Widgetized (Fat) Footer', 'volatyl') . '</th>',
+			'th'			=> '<th scope="row">' . __('Activate Widgetized Footer', 'volatyl') . '</th>',
 			'td'			=> '<td>',
 			'title'			=> 'fatfooter',
 			'label'			=> __('Activate the 3-column, widget-ready footer. If activated, ', 'volatyl') . '<a href="widgets.php">' . __('add widgets here', 'volatyl') . '</a>.',
