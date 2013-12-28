@@ -12,27 +12,6 @@
  * @package Volatyl
  * @since Volatyl 1.0
  */
- 
- 
-/** Body classes for Easy Digital Downloads
- *
- * Add specific CSS class by filter for EDD pages.
- *
- * @since Volatyl 1.2
- */
-function vol_edd_body_classes($classes) {
-	global $post;
-	
-	// Add .store-item body class for individual download pages
-	if (get_query_var('post_type') === 'download' )
-		$classes[] = 'store-item';
-		
-	// Add .store-front body class for Store Front page template
-	if (is_page_template('custom-store-front.php'))
-		$classes[] = "store-front";
-	return $classes;
-}
-add_filter( 'body_class', 'vol_edd_body_classes' );
 
 
 /** Body class by custom page template
@@ -135,3 +114,24 @@ function vol_singular_body_class($classes) {
 	return $classes;
 }
 add_filter('body_class', 'vol_singular_body_class');
+ 
+ 
+/** Body classes for Easy Digital Downloads
+ *
+ * Add specific CSS class by filter for EDD pages.
+ *
+ * @since Volatyl 1.2
+ */
+function vol_edd_body_classes($classes) {
+	global $post;
+	
+	// Add .store-item body class for individual download pages
+	if (get_query_var('post_type') === 'download' )
+		$classes[] = 'store-item';
+		
+	// Add .store-front body class for Store Front page template
+	if (is_page_template('custom-store-front.php'))
+		$classes[] = "store-front";
+	return $classes;
+}
+add_filter( 'body_class', 'vol_edd_body_classes' );

@@ -126,51 +126,6 @@ function volatyl_general() {
 	return $vol_general;
 }
 
-/** Easy Digital Download Settings of the "EDD" tab
- *
- * This array is used to set up the Easy Digital Download Settings options. 
- * The array fields are designed to build an HTML table and utilize the
- * built-in styling that WordPress provides for settings pages (Settings API).
- *
- * The /inc/options/theme-options.php file uses the variables that hold
- * theses arrays and runs them through foreach loops to create the options
- * fields. Not every main array key holds the same type of values. Depending
- * on an option's placement in the table, it may opening the beginning or
- * closing HTML tags of certain <table> elements. 
- *
- * The foreach loops check first to see if the array items have a certain 
- * key in place before attempting to put it in the table. If that key doesn't
- * exist, the foreach will move on. It's pretty cool.
- * 
- * @since Volatyl 1.2
- */	
-function volatyl_edd() {
-	$vol_edd = array(
-		'Automatic Updates' => array(
-			'table'			=> '<table class="form-table">',
-			'tr'			=> '<tr>',
-			'th'			=> __('<th scope="row">Enable <abbr title="Easy Digital Downloads">EDD</abbr> Styles</th>', 'volatyl'),
-			'td'			=> '<td>',
-			
-			'title'			=> 'eddstyles',
-			'label'			=> __('Check this box to use Easy Digital Downloads CSS. Uncheck to use your own CSS a child theme stylesheet.', 'volatyl'),
-			'td_end'		=> '</td>',
-			'tr_end'		=> '</tr>'
-		),
-		'Download Comments' => array(
-			'tr'			=> '<tr>',
-			'th'			=> __('<th scope="row">Display Comments on Downloads</th>', 'volatyl'),
-			'td'			=> '<td>',
-			
-			'title'			=> 'downloadcomments',
-			'label'			=> __('Check this box to display comments on single download pages.', 'volatyl'),
-			'td_end'		=> '</td>',
-			'tr_end'		=> '</tr>'
-		),
-	);
-	return $vol_edd;
-}
-
 
 /** Content Settings of the "Content" tab
  *
@@ -681,4 +636,49 @@ function vol_after_sidebar_2() {
 	global $options_hooks; 
 	echo stripslashes($options_hooks['vol_after_sidebar_2']); 
 	do_action('vol_after_sidebar_2'); 
+}
+
+
+/** Easy Digital Download Settings of the "EDD" tab
+ *
+ * This array is used to set up the Easy Digital Download Settings options. 
+ * The array fields are designed to build an HTML table and utilize the
+ * built-in styling that WordPress provides for settings pages (Settings API).
+ *
+ * The /inc/options/theme-options.php file uses the variables that hold
+ * theses arrays and runs them through foreach loops to create the options
+ * fields. Not every main array key holds the same type of values. Depending
+ * on an option's placement in the table, it may opening the beginning or
+ * closing HTML tags of certain <table> elements. 
+ *
+ * The foreach loops check first to see if the array items have a certain 
+ * key in place before attempting to put it in the table. If that key doesn't
+ * exist, the foreach will move on. It's pretty cool.
+ * 
+ * @since Volatyl 1.2
+ */	
+function volatyl_edd() {
+	$vol_edd = array(
+		'Automatic Updates' => array(
+			'table'			=> '<table class="form-table">',
+			'tr'			=> '<tr>',
+			'th'			=> __('<th scope="row">Enable <abbr title="Easy Digital Downloads">EDD</abbr> Styles</th>', 'volatyl'),
+			'td'			=> '<td>',			
+			'title'			=> 'eddstyles',
+			'label'			=> __('Check this box to use Easy Digital Downloads CSS. Uncheck to use your own CSS a child theme stylesheet.', 'volatyl'),
+			'td_end'		=> '</td>',
+			'tr_end'		=> '</tr>'
+		),
+		'Download Comments' => array(
+			'tr'			=> '<tr>',
+			'th'			=> __('<th scope="row">Display Comments on Downloads</th>', 'volatyl'),
+			'td'			=> '<td>',
+			
+			'title'			=> 'downloadcomments',
+			'label'			=> __('Check this box to display comments on single download pages.', 'volatyl'),
+			'td_end'		=> '</td>',
+			'tr_end'		=> '</tr>'
+		),
+	);
+	return $vol_edd;
 }

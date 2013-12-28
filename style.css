@@ -62,23 +62,23 @@ h2 {
 
 .site-description,
 .entry-meta,
-.edd-variable-pricing-desc,
 .site-content h5, 
 .site-content h6,
 blockquote p,
 .comment-date,
-.comment-date a { 
+.comment-date a,
+.edd-variable-pricing-desc { 
 	color: #666; 
 }
 
 pre,
 .entry-meta,
-.edd-variable-pricing-desc,
 .comment-date,
 .comment-reply-link,
 .wp-caption p,
 .form-allowed-tags, 
-.form-allowed-tags code {
+.form-allowed-tags code,
+.edd-variable-pricing-desc {
 	font-size: .86667em; 
 	line-height: 1.6em; 
 }
@@ -224,8 +224,8 @@ a,
 
 .entry-header h1 a, 
 .entry-header h2 a,
-.product-title,
-.entry-title a { 
+.entry-title a,
+.product-title { 
 	color: #000;
 	text-decoration: none; 
 }
@@ -251,6 +251,11 @@ a,
 .aligncenter {
 	clear: both;
 	margin: 0 auto;
+}
+
+#main-content,
+#sidebars {
+	word-break: break-word;
 }
 
 #main-content pre {
@@ -606,8 +611,7 @@ td {
 .post > .entry-summary > p:last-of-type, 
 .page.hentry > .entry-summary > p:last-of-type,
 .sticky.post > .entry-summary > p:last-of-type,
-.format-aside > .entry-content > p:last-of-type,
-.taxonomy-description p:last-child {
+.format-aside > .entry-content > p:last-of-type {
 	margin-bottom: 0;
 }
 
@@ -750,7 +754,7 @@ h5,
 
 #comments > ol,
 .comments-content > ol li.comment,
-.comments-content > ol > li.pingback {
+.comments-content > ol li.pingback {
 	list-style: none;
 }
 
@@ -1016,25 +1020,25 @@ select {
 .css #content, 
 .sc #sidebars, 
 .c2 .sidebar-1,
-.c2 .download-before-sidebar-1,
 .three-col .sidebar-1,
-.three-col .download-before-sidebar-1,
-.css .sidebar-2, 
-.css .download-before-sidebar-2,
+.css .sidebar-2,
 .ssc .sidebar-2,
+.c2 .download-before-sidebar-1,
+.three-col .download-before-sidebar-1,
+.css .download-before-sidebar-2,
 .ssc .download-before-sidebar-2 {
 	float: left;
 	padding: 1.33334em;
 }
 
-.c2 .sidebar-2, 
-.c2 .download-before-sidebar-2,
+.c2 .sidebar-2,
 .cs #sidebars, 
 .sc #content, 
 .scs #content, 
-.scs .sidebar-2, 
-.scs .download-before-sidebar-2,
-.ssc #content {
+.scs .sidebar-2,
+.ssc #content,
+.c2 .download-before-sidebar-2,
+.scs .download-before-sidebar-2 {
 	float: right;
 	padding: 1.33334em;
 } 
@@ -1049,9 +1053,9 @@ select {
 	padding: 1.33334em;
 }
 
-.c2 .sidebar-1,
-.c2 .download-before-sidebar-1, 
+.c2 .sidebar-1, 
 .c2 .sidebar-2,
+.c2 .download-before-sidebar-1,
 .c2 .download-before-sidebar-2 { 
 	width: 50%; 
 }

@@ -66,7 +66,7 @@ function vol_columns() {
 }
 
 
-/** Singular Column layouts
+/** Singular (posts, pages, and attachments) Column layouts
  *
  * The above vol_columns() structure can be overwritten on single posts & pages.
  * The "default" case, which is used if no selection is made for the singular

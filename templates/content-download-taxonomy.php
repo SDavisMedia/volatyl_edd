@@ -95,4 +95,4 @@ echo (($options_structure['wide'] == 1) ? '</div>' : '');
 echo "</div>";
 
 /** *******************************************************************
- * TO DISPLAY HTML BELOW THE STORE, PLACE IT DIRECTLY AFTER THIS LINE */ ?>
+ * TO DISPLAY HTML BELOW THE STORE, PLACE IT DIRECTLY AFTER THIS LINE (child themes) */ ?>

@@ -58,9 +58,6 @@ require_once (THEME_FUNCTIONS . '/edd-functions.php');
 if (!function_exists('vol_setup')) {
 	function vol_setup() {
 
-		// WordPress says it's required. *Shoulder shrug*
-		if (!isset($content_width)) $content_width = 960;
-
 		// Translations can be filed in the /languages/ directory
 		load_theme_textdomain('volatyl', THEME_PATH . '/inc/languages');
 

@@ -21,7 +21,7 @@ function vol_structure_default_settings() {
 	global $structure_options;
 	$structure_options = array(
 		'wide'					=> 1,
-		'column'				=> 'cs'
+		'column'				=> 'sc'
 	);
 	return $structure_options;
 }
@@ -68,31 +68,6 @@ function vol_general_settings_init() {
 add_action('after_setup_theme','vol_general_settings_init');
 
 
-// EDD settings
-function vol_edd_default_settings() {
-	global $edd_options_defaults;
-	$edd_options_defaults = array(
-		'eddstyles'			=> 1,
-		'downloadcomments'	=> 0
-	);
-	return $edd_options_defaults;
-}
-
-// Initialize EDD Default Options
-function vol_edd_settings_init() {
-
-	// set EDD options equal to defaults
-	global $edd_options_defaults;
-	$edd_options_defaults = get_option('vol_edd_options');
-	
-	if (false === $edd_options_defaults)
-		$edd_options_defaults = vol_edd_default_settings();
-	  
-	update_option('vol_edd_options', $edd_options_defaults);
-}
-add_action('after_setup_theme','vol_edd_settings_init');
-
-
 // Content settings
 function vol_content_default_settings() {
 	global $content_options;
@@ -137,3 +112,28 @@ function vol_content_settings_init() {
 	update_option('vol_content_options', $content_options);
 }
 add_action('after_setup_theme','vol_content_settings_init');
+
+
+// EDD settings
+function vol_edd_default_settings() {
+	global $edd_options_defaults;
+	$edd_options_defaults = array(
+		'eddstyles'			=> 1,
+		'downloadcomments'	=> 0
+	);
+	return $edd_options_defaults;
+}
+
+// Initialize EDD Default Options
+function vol_edd_settings_init() {
+
+	// set EDD options equal to defaults
+	global $edd_options_defaults;
+	$edd_options_defaults = get_option('vol_edd_options');
+	
+	if (false === $edd_options_defaults)
+		$edd_options_defaults = vol_edd_default_settings();
+	  
+	update_option('vol_edd_options', $edd_options_defaults);
+}
+add_action('after_setup_theme','vol_edd_settings_init');

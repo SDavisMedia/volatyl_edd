@@ -10,8 +10,7 @@
  * handles the WordPress loop for:
  *
  * is_home()
- * is_single()
- * EDD Downloads
+ * is_single() & EDD Downloads - 'download' == get_post_type()
  * is_page()
  * is_search()
  * is_archive()
@@ -85,7 +84,7 @@ function vol_content() {
 			'');
 			
 		// EDD Download
-		} elseif (('download' == get_post_type())) {
+		} elseif ('download' == get_post_type()) {
 	
 			// Da loop
 			while (have_posts()) {
