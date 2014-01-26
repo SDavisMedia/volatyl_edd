@@ -14,10 +14,7 @@
  *
  * @package Volatyl
  * @since Volatyl 1.2.2.2
- *
- * *******************************************************************
- * TO DISPLAY HTML ABOVE THE STORE, PLACE IT DIRECTLY AFTER THIS LINE (child themes) */
- 
+ */ 
 
 // HTML structure flexibility
 if ($options_structure['wide'] == 1) : 
@@ -93,6 +90,3 @@ endif; ?>
 // HTML structure flexibility
 echo (($options_structure['wide'] == 1) ? '</div>' : '');
 echo "</div>";
-
-/** *******************************************************************
- * TO DISPLAY HTML BELOW THE STORE, PLACE IT DIRECTLY AFTER THIS LINE (child themes) */ ?>
