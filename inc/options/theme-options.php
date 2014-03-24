@@ -98,7 +98,7 @@ function vol_options_do_page() {
  	 * @since Volatyl 1.0
 	 */
 	$active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'global';
-	$add_tab = array('global', 'EDD', 'content', 'hooks', 'license', 'information');
+	$add_tab = array(__('global', 'volatyl'), __('content', 'volatyl'), __('hooks', 'volatyl'), __('license', 'volatyl'), __('information', 'volatyl'));
 	
 	echo "{$tab3}<h2 class=\"nav-tab-wrapper\">\n";
 	
@@ -106,7 +106,7 @@ function vol_options_do_page() {
 	foreach ($add_tab as $tab) {
 		echo "{$tab3}\t<a href=\"?page=volatyl_options&tab=" . $tab . "\" class=\"nav-tab ", 
 		($active_tab == $tab ? 'nav-tab-active' : ''), "\">" . 
-		__($tab, 'volatyl') . "</a>\n";
+		$tab . "</a>\n";
 	}
 	echo "{$tab3}</h2>\n";
 	
@@ -163,7 +163,7 @@ function vol_options_do_page() {
 			
 			// Input and label for site layout options
 			echo "\n{$tab6}\t\t<label class=\"description layout-label\">\n
-			{$tab9}<input class=\"layout-radio\" type=\"radio\" name=\"vol_structure_options[column]\" value=\"", esc_attr_e($option['value']), "\" ", $checked, " />\n
+			{$tab9}<input class=\"layout-radio\" type=\"radio\" name=\"vol_structure_options[column]\" value=\"", $option['value'], "\" ", $checked, " />\n
 			{$tab9}", $option['label'], "\n
 			{$tab6}\t\t</label>\n";
 		} 

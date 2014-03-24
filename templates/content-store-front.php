@@ -33,7 +33,7 @@ endif; ?>
 				</a>
 				<div class="product-image">
 					<a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail('product-image'); ?>
+						<?php the_post_thumbnail('product-image', array('class' => 'product-img')); ?>
 					</a>
 					<?php if(function_exists('edd_price')) { ?>
 						<div class="product-price">
@@ -42,13 +42,13 @@ endif; ?>
 	
 								// if the download has variable prices,
 								// show the first one as a starting price
-								_e($item_info['starting_price'] . ' ', 'volatyl'); 
+								echo $item_info['starting_price'] . ' '; 
 								edd_price(get_the_ID());
 							} elseif ('0' != edd_get_download_price(get_the_ID()) && !edd_has_variable_prices( get_the_ID())) {
-								_e($item_info['price'] . ' ', 'volatyl'); 
+								echo $item_info['price'] . ' '; 
 								edd_price(get_the_ID()); 
 							} else {
-								_e($item_info['free'] . ' ','volatyl');
+								echo $item_info['free'] . ' ';
 							} ?>
 						</div>
 					<?php } ?>

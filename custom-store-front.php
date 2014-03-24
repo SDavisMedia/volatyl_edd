@@ -26,9 +26,9 @@ $products = new WP_Query($product_args);
 
 // custom filters 
 $item_info = apply_filters('item_info', array(
-	'price' => 'Price:',
-	'starting_price' => 'Starting at:',
-	'free' => 'Free'
+	'price' 			=> __('Price:', 'volatyl'),
+	'starting_price' 	=> __('Starting at:', 'volatyl'),
+	'free' 				=> __('Free', 'volatyl')
 	) 
 );
 

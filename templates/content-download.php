@@ -19,8 +19,7 @@ $options_edd = get_option('vol_edd_options');
 $options_posts = get_option('vol_content_options');
 
 // Custom filters
-$single_tags_text = apply_filters('single_tags_text', 'Tags: ');
-$post_page_nav = apply_filters('post_page_nav', 'Pages:'); ?>
+$single_tags_text = apply_filters('single_tags_text', __('Tags: ', 'volatyl')); ?>
 
 <article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
 	
@@ -45,7 +44,7 @@ $post_page_nav = apply_filters('post_page_nav', 'Pages:'); ?>
 
 		// Show feed tags
 		(($options_posts['singletags'] == 1) ?
-			the_tags('<div class="entry-meta tags post-meta-footer">' . __($single_tags_text, 'volatyl'), ', ', '<br /></div>') :
+			the_tags('<div class="entry-meta tags post-meta-footer">' . $single_tags_text, ', ', '<br /></div>') :
 		'');
 		
 		// Only show comments if option is turned on
