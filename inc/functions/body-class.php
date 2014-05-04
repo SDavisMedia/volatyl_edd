@@ -24,10 +24,11 @@
 function vol_page_template_body_class($classes) {
 	
 	// add class name to the $classes array based on conditions
-	if (is_page_template('custom-landing.php'))
+	if (is_page_template('custom-landing.php')) {
 		$classes[] = "landing";
-	elseif (is_page_template('custom-squeeze.php'))
+	} elseif (is_page_template('custom-squeeze.php')) {
 		$classes[] = "squeeze";
+	}
 	
 	// return the $classes array
 	return $classes;
@@ -49,8 +50,9 @@ function vol_main_layout_class($classes) {
 	global $post;
 	$options = get_option('vol_structure_options');
 	
-	if (!is_404() && !is_search())
+	if (!is_404() && !is_search()) {
 		$single_layout = get_post_meta($post->ID, '_singular-column', true);
+	}
 	
 	// add class name to the $classes array based on conditions
 	if (is_singular()) {
@@ -99,21 +101,25 @@ add_filter('body_class', 'vol_main_layout_class');
 function vol_singular_body_class($classes) {
 	global $post;
 	
-	if (!is_404() && !is_search())
+	if (!is_404() && !is_search()) {
 		$singular_body_class = get_post_meta($post->ID, '_custom-class', true);
+	}
 	
-	if (is_page())	
+	if (is_page()) {
 		$da_title_or_no = get_post_meta($post->ID, '_singular-title', true);
+	}
 	
 	// add class name to the $classes array based on conditions
 	if (is_singular()) {
 	
 		// Add the body class if it exists
-		if ('' !== $singular_body_class)
+		if ('' !== $singular_body_class) {
 			$classes[] = $singular_body_class;
+		}
 			
-		if ($da_title_or_no == 1)
+		if ($da_title_or_no == 1) {
 			$classes[] = 'no-title';
+		}
 	}
 	
 	// return the $classes array
@@ -132,12 +138,16 @@ function vol_edd_body_classes($classes) {
 	global $post;
 	
 	// Add .store-item body class for individual download pages
-	if (get_query_var('post_type') === 'download' )
+	if (get_query_var('post_type') === 'download') {
 		$classes[] = 'store-item';
+	}
 		
 	// Add .store-front body class for Store Front page template
-	if (is_page_template('custom-store-front.php'))
+	if (is_page_template('custom-store-front.php')) {
 		$classes[] = "store-front";
+	}
+	
+	// return the $classes array
 	return $classes;
 }
 add_filter( 'body_class', 'vol_edd_body_classes' );

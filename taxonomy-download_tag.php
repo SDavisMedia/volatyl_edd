@@ -12,7 +12,7 @@
  * @since Volatyl 1.2.2.2
  */
 $options_structure = get_option('vol_structure_options');
-$store_page_setting = (is_tax() ? 'paged' : 'page' );
+$store_page_setting = (is_tax() ? 'paged' : 'page');
 $current_page = get_query_var($store_page_setting);
 
 // custom filters 
@@ -20,8 +20,7 @@ $item_info = apply_filters('item_info', array(
 	'price' 			=> __('Price:', 'volatyl'),
 	'starting_price' 	=> __('Starting at:', 'volatyl'),
 	'free' 				=> __('Free', 'volatyl')
-	) 
-);
+));
 
 get_header();
 vol_html_before_content(); 

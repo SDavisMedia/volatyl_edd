@@ -40,47 +40,72 @@ if ( $purchases ) :
 		foreach ( $purchases as $post ) : setup_postdata( $post );
 			$downloads 		= edd_get_payment_meta_downloads( $post->ID );
 			$purchase_data 	= edd_get_payment_meta( $post->ID );
+			$email          = edd_get_payment_user_email( $payment->ID );
 
-			if ( $downloads ) {
-				foreach ( $downloads as $download ) {
-					echo '<tr class="edd_download_history_row">';
-						$id 			= isset( $purchase_data['cart_details'] )   ? $download['id']                  : $download;
-						$price_id 		= isset( $download['options']['price_id'] ) ? $download['options']['price_id'] : null;
-						$download_files = edd_get_download_files( $id, $price_id );
-						$name           = get_the_title( $id );
+			if ( $downloads ) :
+				foreach ( $downloads as $download ) :
 
-						if ( isset( $download['options']['price_id'] ) ) {
-							$name .= ' - ' . edd_get_price_option_name( $id, $download['options']['price_id'], $post->ID );
+					// Skip over Bundles. Products included with a bundle will be displayed individually
+					if ( edd_is_bundled_product( $download['id'] ) )
+						continue; ?>
+					
+					<tr class="edd_download_history_row">
+						<?php
+						$price_id 		= edd_get_cart_item_price_id( $download );
+						$download_files = edd_get_download_files( $download['id'], $price_id );
+						$name           = get_the_title( $download['id'] );
+
+						// Retrieve and append the price option name
+						if ( ! empty( $price_id ) ) {
+							$name .= ' - ' . edd_get_price_option_name( $download['id'], $price_id, $payment->ID );
 						}
 
-						do_action( 'edd_download_history_row_start', $post->ID, $id );
+						do_action( 'edd_download_history_row_start', $payment->ID, $download['id'] );
+						?>
+						<td class="edd_download_download_name"><?php echo esc_html( $name ); ?></td>
+						
+						<?php if ( ! edd_no_redownload() ) : ?>
+							<td class="edd_download_download_files">							
+								<?php
 
-						echo '<td class="edd_download_download_name">' . esc_html( $name ) . '</td>';
+								if ( edd_is_payment_complete( $payment->ID ) ) :
+								
+									if ( $download_files ) :
+									
+										foreach ( $download_files as $filekey => $file ) :
 
-						if ( ! edd_no_redownload() ) {
-							echo '<td class="edd_download_download_files">';
+											$download_url = edd_get_download_file_url( $purchase_data['key'], $email, $filekey, $download['id'], $price_id );
+											?>
 
-							if ( $download_files ) {
-								foreach ( $download_files as $filekey => $file ) {
-									$download_url = edd_get_download_file_url( $purchase_data['key'], $purchase_data['email'], $filekey, $id, $price_id );
+											<div class="edd_download_file">
+												<a href="<?php echo esc_url( $download_url ); ?>" class="edd_download_file_link">
+													<?php echo esc_html( $file['name'] ); ?>
+												</a>
+											</div>
+		
+											<?php do_action( 'edd_download_history_files', $filekey, $file, $id, $post->ID, $purchase_data );
+										endforeach;
+										
+									else :
+										_e($download_history_info['history_no_downloads_found'], 'volatyl');
+									endif;
 
-									echo '<div class="edd_download_file"><a href="' . esc_url( $download_url ) . '" class="edd_download_file_link">' . esc_html( $file['name'] ) . '</a></div>';
+								else : ?>
+									<span class="edd_download_payment_status">
+										<?php printf( __( 'Payment status is %s', 'edd' ), edd_get_payment_status( $payment, true) ); ?>
+									</span>
+									<?php
+								endif; // End if $download_files
+								?>
+							</td>
+						<?php endif; // End if ! edd_no_redownload()
 
-									do_action( 'edd_download_history_files', $filekey, $file, $id, $post->ID, $purchase_data );
-								}
-							} else {
-								_e($download_history_info['history_no_downloads_found'], 'volatyl');
-							}
-
-							echo '</td>';
-						} // End if ! edd_no_redownload()
-
-						do_action( 'edd_download_history_row_end', $post->ID, $id );
-					echo '</tr>';
-
-				} // End foreach $downloads
-				wp_reset_postdata();
-			} // End if $downloads
+						do_action( 'edd_download_history_row_end', $payment->ID, $download['id'] );
+						?>
+					</tr>
+					<?php 
+				endforeach; // End foreach $downloads
+			endif; // End if $downloads
 		endforeach;
 		?>
 	</table>
@@ -99,4 +124,5 @@ if ( $purchases ) :
 	do_action( 'edd_after_download_history' );
 else : ?>
 	<p class="edd-no-downloads"><?php _e($download_history_info['history_no_purchases'], 'volatyl'); ?></p>
-<?php endif; ?>
+	<?php
+endif;

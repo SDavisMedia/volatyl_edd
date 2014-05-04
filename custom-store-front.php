@@ -18,9 +18,9 @@ $current_page = get_query_var($store_page_setting);
 $store_items_per_page = apply_filters('store_items_per_page', 9); // custom filter - do not move
 $offset = $current_page > 0 ? $store_items_per_page * ($current_page-1) : 0;
 $product_args = array(
-	'post_type' => 'download',
-	'posts_per_page' => $store_items_per_page,
-	'offset' => $offset
+	'post_type'			=> 'download',
+	'posts_per_page'	=> absint( $store_items_per_page ),
+	'offset'			=> $offset
 );
 $products = new WP_Query($product_args);
 
@@ -29,8 +29,7 @@ $item_info = apply_filters('item_info', array(
 	'price' 			=> __('Price:', 'volatyl'),
 	'starting_price' 	=> __('Starting at:', 'volatyl'),
 	'free' 				=> __('Free', 'volatyl')
-	) 
-);
+));
 
 get_header();
 vol_html_before_content(); 

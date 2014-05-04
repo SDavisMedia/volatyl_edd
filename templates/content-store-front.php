@@ -15,13 +15,13 @@
  * @package Volatyl
  * @since Volatyl 1.2.2
  */
-
-// HTML structure flexibility
-if ($options_structure['wide'] == 1) : 
-	echo "<div id=\"main-content\" class=\"store-front full clearfix\"><div class=\"main\">";
-else :
-	echo "<div id=\"main-content\" class=\"store-front clearfix\">";
-endif; ?>
+?>
+<?php if ($options_structure['wide'] == 1) { // HTML structure flexibility ?>
+	<div id="main-content" class="store-front taxonomy-store-front full clearfix">
+		<div class="main">
+<?php } else { ?>
+	<div id="main-content" class="store-front taxonomy-store-front clearfix">
+<?php } ?>
 
 <div class="products inner">
 	<div class="products-container clearfix">
@@ -88,5 +88,9 @@ endif; ?>
 
 <?php
 // HTML structure flexibility
-echo (($options_structure['wide'] == 1) ? '</div>' : '');
-echo "</div>";
+if ($options_structure['wide'] == 1) { ?>
+	</div>
+	<?php
+}
+?>
+</div>

@@ -36,11 +36,11 @@ function vol_columns() {
 			vol_content();
 			break;
 		case 'c2':
-			vol_content();
-			printf("\t\t<div id=\"sidebars-wrap\" class=\"clearfix\">\n");
-			get_sidebar($sidebar_one); 
-			get_sidebar($sidebar_two);
-			printf("\t\t</div>\n");
+			vol_content(); ?>
+			<div id="sidebars-wrap" class="clearfix">
+				<?php get_sidebar($sidebar_one); get_sidebar($sidebar_two); ?>
+			</div>
+			<?php
 			break;
 		case 'cs':
 		case 'sc':
@@ -53,15 +53,15 @@ function vol_columns() {
 			get_sidebar($sidebar_one);
 			get_sidebar($sidebar_two);
 			break;
-		case 'scs':
-			printf("\t\t<div id=\"wrap\">\n");
-			vol_content(); 
-			get_sidebar($sidebar_one);
-			printf("\t\t</div>\n");
+		case 'scs': ?>
+			<div id="wrap">
+				<?php vol_content(); get_sidebar($sidebar_one); ?>
+			</div>
+			<?php
 			get_sidebar($sidebar_two);
 			break;
 		case '':
-			echo __('Error: Please select a column structure in the ', 'volatyl') . THEME_NAME .  __(' Options.', 'volatyl');
+			printf(__('Error: Please select a column structure in the %s Options.', 'volatyl'), THEME_NAME);
 	}
 }
 
@@ -87,11 +87,11 @@ function vol_columns_singular() {
 			vol_content();
 			break;
 		case 'c2':
-			vol_content();
-			printf("\t\t<div id=\"sidebars-wrap\" class=\"border-box clearfix\">\n");
-			get_sidebar($sidebar_one);
-			get_sidebar($sidebar_two);
-			printf("\t\t</div>\n");
+			vol_content(); ?>
+			<div id="sidebars-wrap" class="border-box clearfix">
+				<?php get_sidebar($sidebar_one); get_sidebar($sidebar_two); ?>
+			</div>
+			<?php
 			break;
 		case 'cs':
 		case 'sc':
@@ -104,11 +104,11 @@ function vol_columns_singular() {
 			get_sidebar($sidebar_one); 
 			get_sidebar($sidebar_two);
 			break;
-		case 'scs':
-			printf("\t\t<div id=\"wrap\">\n");
-			vol_content();
-			get_sidebar($sidebar_one);
-			printf("\t\t</div>\n");
+		case 'scs': ?>
+			<div id="wrap">
+				<?php vol_content(); get_sidebar($sidebar_one); ?>
+			</div>
+			<?php
 			get_sidebar($sidebar_two);
 			break;
 		default:

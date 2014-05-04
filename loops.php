@@ -28,22 +28,20 @@
 
 function vol_content() {
 	global $options;
+	?>
 	
-	echo "<div id=\"content\" class=\"site-content border-box clearfix\">";
+	<div id="content" class="site-content border-box clearfix">
 	
-	if (have_posts()) {
-
-		// Blog home
+	<?php
+	if (have_posts()) { // start the loop for ALL THE THINGS
+		
+		// blog home
 		if (is_home()) {
 
-			// vol_before_content_column
-			(($options['switch_vol_before_content_column'] == 0) ?
-				(($options['home_vol_before_content_column'] == 0) ?
-					vol_before_content_column() : 
-					do_action('vol_before_content_column')) : 
-			'');
+			// vol_before_content_column hook
+			vol_before_content_column_home_output();
 		
-			// Da loop
+			// da loop
 			while (have_posts()) { 
 				the_post();
 				get_template_part('templates/content');
@@ -51,42 +49,30 @@ function vol_content() {
 			
 			vol_pagination_type(); // /inc/functions/page-nav.php
 			
-			// vol_after_content_column
-			(($options['switch_vol_after_content_column'] == 0) ?
-				(($options['home_vol_after_content_column'] == 0) ?
-					vol_after_content_column() :
-					do_action('vol_after_content_column')) :
-			'');
+			// vol_after_content_column hook
+			vol_after_content_column_home_output();
 	
 		// Single posts
-		} elseif (is_single() && !is_attachment() && ('download' != get_post_type())) { 
+		} elseif (is_single() && !is_attachment() && ('download' != get_post_type())) {
 
-			// vol_before_content_column
-			(($options['switch_vol_before_content_column'] == 0) ?
-				(($options['posts_vol_before_content_column'] == 0) ?
-					vol_before_content_column() :
-					do_action('vol_before_content_column')) :
-			'');
+			// vol_before_content_column hook
+			vol_before_content_column_posts_output();
 			
 			$postformat = (get_post_format() ? get_post_format() : 'single');
 		
-			// Da loop
+			// da loop
 			while (have_posts()) { 
 				the_post();
 				get_template_part('templates/content', $postformat);
 			}
-
-			// vol_after_content_column
-			(($options['switch_vol_after_content_column'] == 0) ?
-				(($options['posts_vol_after_content_column'] == 0) ?
-					vol_after_content_column() :
-					do_action('vol_after_content_column')) :
-			'');
+			
+			// vol_after_content_column hook
+			vol_after_content_column_post_output();
 			
 		// EDD Download
 		} elseif ('download' == get_post_type()) {
 	
-			// Da loop
+			// da loop
 			while (have_posts()) {
 				the_post();
 				get_template_part('templates/content', 'download');
@@ -95,7 +81,7 @@ function vol_content() {
 		// Pages
 		} elseif (is_page()) {
 	
-			// Da loop
+			// da loop
 			while (have_posts()) {
 				the_post();
 				get_template_part('templates/content', 'page');
@@ -108,28 +94,19 @@ function vol_content() {
 
 		// Archives including categories, tags, authors, dates, and bears. Oh my!
 		} elseif (is_archive()) {
-			$options_hooks = get_option('vol_hooks_options');
 
-			// vol_before_content_column
-			(($options['switch_vol_before_content_column'] == 0) ?
-				(($options['archive_vol_before_content_column'] == 0) ?
-					vol_before_content_column() :
-					do_action('vol_before_content_column')) :
-			'');
+			// vol_before_content_column hook
+			vol_before_content_column_archive_output();
 				
 			get_template_part('templates/content', 'archive');
-
-			// vol_after_content_column
-			(($options_hooks['switch_vol_after_content_column'] == 0) ?
-				((is_archive() && $options_hooks['archive_vol_after_content_column'] == 0) ?
-					vol_after_content_column() :
-					do_action('vol_after_content_column')) :
-			'');
+			
+			// vol_after_content_column hook
+			vol_after_content_column_archive_output();
 	
 		// Attachment pages
 		} elseif (is_attachment()) {
 		
-			// Da loop
+			// da loop
 			while (have_posts()) {
 				the_post();
 				get_template_part('templates/content', 'attachment');
@@ -138,7 +115,7 @@ function vol_content() {
 		// 404 error page
 		} elseif (is_404()) {
 		
-			// Da loop
+			// da loop
 			while (have_posts()) {
 				the_post();
 				get_template_part('templates/404', 'index');
@@ -147,7 +124,7 @@ function vol_content() {
 		// Stray template (can that even happen?) floating around? I got this.
 		} else {
 		
-			// Da loop
+			// da loop
 			while (have_posts()) {
 				the_post();
 				get_template_part('templates/content', get_post_format());
@@ -156,5 +133,7 @@ function vol_content() {
 	} else {
 		get_template_part('templates/no-results', 'index');
 	}
-	echo "</div>";
+	?>
+	</div>
+<?php 
 }

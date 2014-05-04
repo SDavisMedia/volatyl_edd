@@ -22,34 +22,32 @@ $options_posts = get_option('vol_content_options');
 $single_tags_text = apply_filters('single_tags_text', __('Tags: ', 'volatyl')); ?>
 
 <article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
-	
 	<header class="entry-header">
-		<h1 class="entry-title">
-			<?php the_title(); ?>
-		</h1>
-	</header>
-		
+		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+	</header>		
 	<?php 
-	// Download item Featured Image
-	the_post_thumbnail('full', array(
-		'class'	=> 'featured-img download-img', 
-		'alt'	=> the_title_attribute('echo=0') 
-	)); ?>
-	
-	<section class="entry-content">
-	
+		// Download item Featured Image
+		the_post_thumbnail('full', array(
+			'class'	=> 'featured-img download-img', 
+			'alt'	=> the_title_attribute('echo=0') 
+		));
+	?>	
+	<section class="entry-content">	
 		<?php 
-		// display download content
-		the_content();
-
-		// Show feed tags
-		(($options_posts['singletags'] == 1) ?
-			the_tags('<div class="entry-meta tags post-meta-footer">' . $single_tags_text, ', ', '<br /></div>') :
-		'');
-		
-		// Only show comments if option is turned on
-		if ($options_edd['downloadcomments'] == 1)
-			((comments_open() || '0' != get_comments_number()) ? comments_template('', true) : ''); ?>
-		
+			// display download content
+			the_content();
+	
+			// Show feed tags
+			if ($options_posts['singletags'] == 1) {
+				the_tags('<div class="entry-meta tags post-meta-footer">' . $single_tags_text, ', ', '<br /></div>');
+			}
+			
+			// Only show comments if option is turned on
+			if ($options_edd['downloadcomments'] == 1) {
+				if (comments_open() || '0' != get_comments_number()) {
+					comments_template('', true);
+				}
+			}		
+		?>
 	</section>
 </article>

@@ -34,7 +34,7 @@ function volatyl() {
 	vol_html_before_content();
 	if (is_page_template('custom-layout.php'))
 	
-		// Activated when the specific Page Templates are used
+		// Activated when the "Custom Layout" Template is used on a Page
 		do_action('main_content_custom_layout');
 	elseif (is_singular())
 		
