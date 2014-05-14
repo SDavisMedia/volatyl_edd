@@ -89,13 +89,14 @@ function singular_widgets_init() {
 		'meta_key' => '_create-sidebar-1',
 		'meta_value' => 1,
 		'post_type' => array('post','page','download'),
+		'nopaging' => true
 	);
 	$pages = get_posts($sidebar_1_args);
     foreach($pages as $page) {
         register_sidebar( array(
         	'name'				=> 'Sidebar 1 &#8212; ' . $page->post_title, 
         	'id'				=> 'sidebar-1-' . $page->ID,
-			'description'   	=> __('This sidebar is specific to the Post/Page/Download titled "', 'volatyl') . $page->post_title . __('." Sidebar 1 will always be the leftmost sidebar, first in the HTML flow.', 'volatyl'),
+			'description'   	=> sprintf(__('This sidebar is specific to the Post/Page/Download titled "%s." Sidebar 1 will always be the leftmost sidebar, first in the HTML flow.', 'volatyl'), $page->post_title),
 			'before_widget' 	=> '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' 		=> '</aside>',
 			'before_title' 		=> '<h4 class="widget-title">',
@@ -106,13 +107,14 @@ function singular_widgets_init() {
 		'meta_key' => '_create-sidebar-2',
 		'meta_value' => 1,
 		'post_type' => array('post','page','download'),
+		'nopaging' => true
 	);
 	$pages = get_posts($sidebar_2_args);
     foreach($pages as $page) {
         register_sidebar( array(
         	'name'				=> 'Sidebar 2 &#8212; ' . $page->post_title, 
         	'id'				=> 'sidebar-2-' . $page->ID,
-			'description'   	=> __('This sidebar is specific to the Post/Page/Downoad titled "', 'volatyl') . $page->post_title . __('." Sidebar 2 will always be the rightmost sidebar, last in the HTML flow.', 'volatyl'),
+			'description'   	=> sprintf(__('This sidebar is specific to the Post/Page/Downoad titled "%s." Sidebar 2 will always be the rightmost sidebar, last in the HTML flow.', 'volatyl'), $page->post_title),
 			'before_widget' 	=> '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' 		=> '</aside>',
 			'before_title' 		=> '<h4 class="widget-title">',
@@ -149,12 +151,12 @@ function vol_meta_box_save($post_id) {
         update_post_meta($post_id, '_custom-class', wp_kses($_POST['_custom-class'], $allowed)); 
 
     $new_sidebar_1 = isset($_POST['_create-sidebar-1']) ? 1 : 0;  
-    	update_post_meta( $post_id, '_create-sidebar-1', $new_sidebar_1 ); 
+    	update_post_meta($post_id, '_create-sidebar-1', $new_sidebar_1); 
 
     $new_sidebar_2 = isset($_POST['_create-sidebar-2']) ? 1 : 0;  
-    	update_post_meta( $post_id, '_create-sidebar-2', $new_sidebar_2 ); 
+    	update_post_meta($post_id, '_create-sidebar-2', $new_sidebar_2); 
 
     $da_title_ = isset($_POST['_singular-title']) ? 1 : 0;  
-    	update_post_meta( $post_id, '_singular-title', $da_title_ ); 
+    	update_post_meta($post_id, '_singular-title', $da_title_); 
 }
 add_action('save_post', 'vol_meta_box_save');
