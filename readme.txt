@@ -39,9 +39,3 @@ A. Nope. It'll work just fine without a license key. However, you will not recei
 Q. Can I use Volatyl for EDD without using EDD?
 
 A. Sure! Volatyl for EDD does not require that EDD be activated. This is an ideal setup if you intend to have a digital store in the future but you're not ready for it just yet.
-
-
-
-== Changelog ==
-
-http://support.volatylthemes.com/change-log/
