@@ -15,7 +15,6 @@
  * @since Volatyl 1.2
  */
 global $options;
-$options_posts = get_option('vol_content_options');
 
 // Custom filters
 $single_tags_text = apply_filters('single_tags_text', __('Tags: ', 'volatyl')); ?>
@@ -37,7 +36,7 @@ $single_tags_text = apply_filters('single_tags_text', __('Tags: ', 'volatyl')); 
 			the_content();
 	
 			// Show feed tags
-			if ($options_posts['singletags'] == 1) {
+			if (vol_single_tags_on()) {
 				the_tags('<div class="entry-meta tags post-meta-footer">' . $single_tags_text, ', ', '<br /></div>');
 			}
 			
