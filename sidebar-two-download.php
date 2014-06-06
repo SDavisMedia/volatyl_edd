@@ -11,7 +11,7 @@
  * @package Volatyl
  * @since Volatyl 1.2
  */
- ?>
+?>
 
 <div id="sidebars" class="widget-area sidebar-2 download-sidebar border-box">
 	<?php

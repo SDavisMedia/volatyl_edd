@@ -25,13 +25,12 @@
  * @since Volatyl 1.0
  */
 function vol_columns() {
-	$options = get_option('vol_structure_options');
 	
 	// Load the sidebars based on post types
 	$sidebar_one = (('download' == get_post_type() || is_page_template('custom-store-page.php')) ? 'one-download' : 'one');
 	$sidebar_two = (('download' == get_post_type() || is_page_template('custom-store-page.php')) ? 'two-download' : 'two');
 	
-	switch ($options['column']) {
+	switch (vol_get_layout()) {
 		case 'c1':
 			vol_content();
 			break;

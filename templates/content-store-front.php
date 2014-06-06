@@ -16,7 +16,7 @@
  * @since Volatyl 1.2.2
  */
 ?>
-<?php if ($options_structure['wide'] == 1) { // HTML structure flexibility ?>
+<?php if (vol_is_full_width()) { // HTML structure flexibility ?>
 	<div id="main-content" class="store-front taxonomy-store-front full clearfix">
 		<div class="main">
 <?php } else { ?>
@@ -88,7 +88,7 @@
 
 <?php
 // HTML structure flexibility
-if ($options_structure['wide'] == 1) { ?>
+if (vol_is_full_width()) { ?>
 	</div>
 	<?php
 }

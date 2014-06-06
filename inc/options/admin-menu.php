@@ -15,7 +15,7 @@
  */
 $options = get_option('vol_general_options');
 
-if ($options['adminmenu'] == 1) {
+if (1 == $options['adminmenu']) {
 	function vol_toolbar($admin_bar) {
 		$admin_bar->add_menu(array(
 			'id'			=> 'volatyl',
@@ -40,7 +40,7 @@ if ($options['adminmenu'] == 1) {
 			'title' 		=> __('Easy Digital Downloads', 'volatyl'),
 			'href'  		=> site_url('/wp-admin/themes.php?page=volatyl_options&tab=EDD'),
 			'meta'  		=> array(
-				'title' 	=> __('Easy Digital Downloads', 'volatyl'),
+				'title' 	=> 'Easy Digital Downloads',
 				'target'	=> '_self'
 			),
 		));

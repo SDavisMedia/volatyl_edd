@@ -17,11 +17,11 @@
 	<p>
 		<?php 
 			printf(__('You must install and activate the %1$s plugin to effectively use these options. %2$s is a well-rounded plugin with its own %3$s and %4$s that you should use to customize your online store. If you are unsure whose support to visit for assistance, please visit the %5$s first.', 'volatyl'),
-				"<a href=\"http://wordpress.org/plugins/easy-digital-downloads/\" target=\"_blank\">Easy Digital Downloads</a>",
-				"<abbr title=\"Easy Digital Downloads\">EDD</a>",
-				"<a href=\"http://easydigitaldownloads.com/documentation/\" target=\"_blank\">" . __('documentation', 'volatyl') . "</a>",
-				"<a href=\"http://easydigitaldownloads.com/support/\" target=\"_blank\">" . __('support', 'volatyl') . "</a>",
-				"<a href=\"http://support.volatylthemes.com/\" target=\"_blank\">Volatyl Themes " . __('Support', 'volatyl') . "</a>");
+				'<a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">Easy Digital Downloads</a>',
+				'<abbr title="Easy Digital Downloads">EDD</abbr>',
+				'<a href="http://easydigitaldownloads.com/documentation/" target="_blank">' . __('documentation', 'volatyl') . '</a>',
+				'<a href="http://easydigitaldownloads.com/support/" target="_blank">' . __('support', 'volatyl') . '</a>',
+				'<a href="http://support.volatylthemes.com/" target="_blank">Volatyl Themes ' . __('Support', 'volatyl') . '</a>');
 		?>
 	</p>
 </div>
