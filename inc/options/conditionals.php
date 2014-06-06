@@ -438,3 +438,17 @@ function vol_page_comments_on() {
 		return false;
 	}
 }
+
+/**
+ * Download Comments
+ *
+ * @return bool The option checkbox state
+ */
+function vol_download_comments_on() {
+	$option = get_option('vol_edd_options');
+	if (1 == $option['downloadcomments']) {
+		return true;
+	} else {
+		return false;
+	}
+}

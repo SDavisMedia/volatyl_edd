@@ -15,7 +15,6 @@
  * @since Volatyl 1.2
  */
 global $options;
-$options_edd = get_option('vol_edd_options');
 $options_posts = get_option('vol_content_options');
 
 // Custom filters
@@ -43,7 +42,7 @@ $single_tags_text = apply_filters('single_tags_text', __('Tags: ', 'volatyl')); 
 			}
 			
 			// Only show comments if option is turned on
-			if ($options_edd['downloadcomments'] == 1) {
+			if (vol_download_comments_on()) {
 				if (comments_open() || '0' != get_comments_number()) {
 					comments_template('', true);
 				}
