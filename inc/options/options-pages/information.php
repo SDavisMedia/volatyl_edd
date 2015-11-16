@@ -10,7 +10,7 @@
  *
  * @package Volatyl
  * @since Volatyl 1.4
- */	
+ */
 ?>
 <table class="form-table vol-information">
 	<tr valign="top">
@@ -24,7 +24,7 @@
 					),
 					'Support'	=> array(
 						'name'	=> __('Support', 'volatyl'),
-						'url'	=> 'http://support.volatylthemes.com/forums/'
+						'url'	=> 'http://volatylthemes.com/support/'
 					),
 					'Members'	=> array(
 						'name'	=> __('Members Area', 'volatyl'),
@@ -43,7 +43,7 @@
 			<strong><?php echo __('Current version ', 'volatyl') . THEME_VERSION; ?></strong>
 			<?php
 				foreach ($vol_links as $vl) {
-					printf(' &middot; <a href="%2$s" target="_blank"><strong>%1$s</strong></a>', $vl['name'], $vl['url']); 
+					printf(' &middot; <a href="%2$s" target="_blank"><strong>%1$s</strong></a>', $vl['name'], $vl['url']);
 				}
 			?>
 		</td>
@@ -52,16 +52,16 @@
 		<th scope="row" valign="top"><?php printf(__('The Creation of %s:', 'volatyl'), THEME_NAME); ?></th>
 		<td>
 			<p>
-				<?php 
+				<?php
 					printf(__('%1$s is an %2$s project created by Sean Davis and the wonderful WordPress Codex. Along the way, thanks to %3$s, email, and public begging on <strong>Austin, TX</strong> street corners, what you have here is a unique collection of concepts and codes to help you build websites with WordPress.</p>', 'volatyl'),
-					THEME_NAME, 
-					'<a href="http://sdavismedia.com/" target="_blank">SDavis Media</a>', 
+					THEME_NAME,
+					'<a href="http://sdavismedia.com/" target="_blank">SDavis Media</a>',
 					'<a href="http://sdvs.me/twitter" target="_blank">Twitter</a>');
 				?>
 			</p>
 			<p>
 				<?php
-					printf(__('While there\'s no clear %s for the public begging, those who have taken the time to help solve coding problems, share their experiences, or provide encouragement deserve to be recognized. When you see these people around the universe, thank them.', 'volatyl'), 
+					printf(__('While there\'s no clear %s for the public begging, those who have taken the time to help solve coding problems, share their experiences, or provide encouragement deserve to be recognized. When you see these people around the universe, thank them.', 'volatyl'),
 					'<acronym title="Return on Investment" style="border-bottom: 1px dotted #ccc;">ROI</acronym>');
 				?>
 			</p>
@@ -93,7 +93,7 @@
 				),
 			);
 			foreach ($thanks_yo as $ty) {
-				printf('<a href="%2$s" target="_blank"><strong>%1$s</strong></a> &middot; 
+				printf('<a href="%2$s" target="_blank"><strong>%1$s</strong></a> &middot;
 				<a href="%3$s" target="_blank">Twitter</a><br><p>%4$s</p>',
 					$ty['name'],
 					$ty['homepage_url'],
