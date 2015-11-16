@@ -1,4 +1,4 @@
-<?php 
+<?php
 /** content.php
  *
  ***** THIS IS A CORE VOLATYL FILE AND SHOULD NOT BE EDITED!
@@ -28,7 +28,7 @@ add_filter('post_class', 'vol_first_post_class');
  * Comments are a collection of comments and pings (pingbacks and
  * trackbacks). When the number of comments is displayed, the sum
  * total includes all three types of comments.
- * 
+ *
  * In the comments.php file, the regular comments have been
  * separated from the pings for organizational purposes and to
  * allow users to hide pings while still displaying comments. So,
@@ -43,17 +43,18 @@ add_filter('post_class', 'vol_first_post_class');
  */
 function vol_comments_only_count($count) {
 
-    // Filter the comments count in the front-end only
-    if (!is_admin()) {
-        global $id;
-        $comments_by_type = &separate_comments(get_comments('status=approve&post_id=' . $id));
-        return count($comments_by_type['comment']);
-    }
-    
-    // When in the WP-admin back end, do NOT filter comments (and pings) count.
-    else {
-        return $count;
-    }
+	// Filter the comments count in the front-end only
+	if (!is_admin()) {
+		global $id;
+		$status = get_comments('status=approve&post_id=' . $id);
+		$comments_by_type = separate_comments($status);
+		return count($comments_by_type['comment']);
+	}
+
+	// When in the WP-admin back end, do NOT filter comments (and pings) count.
+	else {
+		return $count;
+	}
 }
 
 // Show excerpt/post link instead of [...]
