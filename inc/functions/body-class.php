@@ -7,7 +7,7 @@
  *******************************************************************
  *
  * On various pages of your site, different body classes are needed
- * for styling purposes. That happens here. 
+ * for styling purposes. That happens here.
  *
  * @package Volatyl
  * @since Volatyl 1.0
@@ -22,14 +22,14 @@
  * @since Volatyl 1.0
  */
 function vol_page_template_body_class($classes) {
-	
+
 	// add class name to the $classes array based on conditions
 	if (is_page_template('custom-landing.php')) {
 		$classes[] = "landing";
 	} elseif (is_page_template('custom-squeeze.php')) {
 		$classes[] = "squeeze";
 	}
-	
+
 	// return the $classes array
 	return $classes;
 }
@@ -48,11 +48,11 @@ add_filter('body_class', 'vol_page_template_body_class');
  */
 function vol_main_layout_class($classes) {
 	global $post;
-	
+
 	if (!is_404() && !is_search()) {
 		$single_layout = get_post_meta($post->ID, '_singular-column', true);
 	}
-	
+
 	// add class name to the $classes array based on conditions
 	if (is_singular()) {
 		if ('default' == $single_layout || '' == $single_layout) {
@@ -84,7 +84,7 @@ function vol_main_layout_class($classes) {
 		}
 		$classes[] = vol_get_layout();
 	}
-	
+
 	// return the $classes array
 	return $classes;
 }
@@ -99,31 +99,28 @@ add_filter('body_class', 'vol_main_layout_class');
  */
 function vol_singular_body_class($classes) {
 	global $post;
-	$da_title_or_no = get_post_meta($post->ID, '_singular-title', true);
-	
-	if (!is_404() && !is_search()) {
-		$singular_body_class = get_post_meta($post->ID, '_custom-class', true);
-	}
-	
-	// add class name to the $classes array based on conditions
-	if (is_singular()) {
-	
-		// Add the body class if it exists
-		if ('' !== $singular_body_class) {
+
+	// get the post meta only if on a post type
+	if ( is_singular() ) {
+		$da_title_or_no = get_post_meta( $post->ID, '_singular-title', true );
+		$singular_body_class = get_post_meta( $post->ID, '_custom-class', true );
+
+		// Add the body classes if they exist
+		if ( '' !== $singular_body_class ) {
 			$classes[] = $singular_body_class;
 		}
-			
-		if (is_page() && 1 == $da_title_or_no) {
+
+		if ( is_page() && 1 == $da_title_or_no ) {
 			$classes[] = 'no-title';
 		}
 	}
-	
+
 	// return the $classes array
 	return $classes;
 }
 add_filter('body_class', 'vol_singular_body_class');
- 
- 
+
+
 /** Body classes for Easy Digital Downloads
  *
  * Add specific CSS class by filter for EDD pages.
@@ -132,17 +129,17 @@ add_filter('body_class', 'vol_singular_body_class');
  */
 function vol_edd_body_classes($classes) {
 	global $post;
-	
+
 	// Add .store-item body class for individual download pages
 	if ('download' === get_query_var('post_type')) {
 		$classes[] = 'store-item';
 	}
-		
+
 	// Add .store-front body class for Store Front page template
 	if (is_page_template('custom-store-front.php')) {
 		$classes[] = "store-front";
 	}
-	
+
 	// return the $classes array
 	return $classes;
 }
