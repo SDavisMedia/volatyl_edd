@@ -68,7 +68,7 @@ function vol_content() {
 					vol_after_content_column_post_output();
 
 				// EDD Download
-				} elseif ('download' == get_post_type()) {
+				} elseif (!is_search() && 'download' == get_post_type()) {
 
 					// da loop
 					while (have_posts()) {
